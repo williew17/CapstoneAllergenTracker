@@ -64,7 +64,6 @@ struct ContentView: View {
     }
     
     func loadInformation() {
-//            atmosphereSummary.loadData(lat: 32.715736, lng: -117.161087)
         pollenDataRetriever.loadData(placemark: locationManager.placemark)
         let triggerList = pollenDataRetriever.getTodaysTriggers()
         let pollenTypeIndexes = consolidateTriggerListByType(triggers: triggerList)
@@ -74,8 +73,6 @@ struct ContentView: View {
             arr[2] = NSNumber(floatLiteral: pollenTypeIndexes[2])
             parsePrediction(predictionString: predictionModel.predict(inputArray: arr) ?? "00000")
         } else { print("failed") }
-        // take data send it to predictor to be predicted on
-    
     }
     
     func consolidateTriggerListByType(triggers: [IdentifiableTrigger]) -> [Double] {

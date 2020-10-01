@@ -17,22 +17,31 @@ class PredictionModel: ObservableObject {
     
     private func loadModel(url: URL) {
         guard FileManager.default.fileExists(atPath: url.path) else {
-            // The updated model is not present at its designated path.
-            print("model not found in path")
+            // The updated model is not present at its designated path. We need to copy the model in and then load a default
+            print(#function, "Model not found in path")
             if let defaultURL = Bundle.main.url(forResource: modelNameString, withExtension: "mlmodelc") {
-                print(defaultURL)
-                print(url)
-                do { try FileManager.default.copyItem(at: defaultURL, to: url)
-                    print("copied model")
-                } catch { }
+                do {
+                    // copy the model for later so we can get updates
+                    try FileManager.default.copyItem(at: defaultURL, to: url)
+                    print(#function, "Copied model into \(url.path) using default model until copy is complete")
+                } catch {
+                    print(#function, "Failed to copy model using default model")
+                }
+                //load the default model and return
+                guard let model = try? MLModel(contentsOf: url) else {
+                    return
+                }
+                print(#function, "Model successfully loaded")
+                updatableModel = model
             }
+            // couldn't get default url need to return failure case
             return
         }
-        print(FileManager.default.fileExists(atPath: url.path))
+        //the model is already present, no copying necessary so we just try and load it
         guard let model = try? MLModel(contentsOf: url) else {
             return
         }
-        print("model successfully loaded")
+        print(#function, "Model successfully loaded")
         updatableModel = model
     }
     
@@ -48,7 +57,6 @@ class PredictionModel: ObservableObject {
             let output = prediction?.featureValue(for: "output")?.stringValue
             print(prediction?.featureNames ?? "Not Found")
             return output
-            // more code here
         } catch {
             print("there was an issue with predict")
         }
@@ -66,10 +74,17 @@ class PredictionModel: ObservableObject {
         let trainingData = batchProvider(inputArray: inputArray, output: output)
         let updatableModelURL = PredictionModel.appDirectory.appendingPathComponent("\(modelNameString).mlmodelc")
         let tempUpdatableModelURL = PredictionModel.appDirectory.appendingPathComponent("temp\(modelNameString).mlmodelc")
+        guard FileManager.default.fileExists(atPath: updatableModelURL.path) else {
+            do {
+                try FileManager.default.copyItem(at: Bundle.main.url(forResource: modelNameString, withExtension: "mlmodelc")!, to: updatableModelURL)
+                print(#function, "Copied model into \(updatableModelURL.path)")
+            } catch { }
+            return
+        }
         let updateTask = try! MLUpdateTask(forModelAt: updatableModelURL,
-                                          trainingData: trainingData,
-                                          configuration: self.updatableModel!.configuration,
-                                          completionHandler: { context in
+                                           trainingData: trainingData,
+                                           configuration: self.updatableModel!.configuration,
+                                           completionHandler: { context in
                                             let updatedModel = context.model
                                             let fileManager = FileManager.default
                                             do {
@@ -77,10 +92,8 @@ class PredictionModel: ObservableObject {
                                                 try fileManager.createDirectory(at: tempUpdatableModelURL,
                                                                                 withIntermediateDirectories: true,
                                                                                 attributes: nil)
-                                                
                                                 // Save the updated model to temporary filename.
                                                 try updatedModel.write(to: tempUpdatableModelURL)
-                                                print("line 73 PredictionModel")
                                                 // Replace any previously updated model with this one.
                                                 _ = try fileManager.replaceItemAt(updatableModelURL,
                                                                                   withItemAt: tempUpdatableModelURL)
@@ -91,39 +104,7 @@ class PredictionModel: ObservableObject {
                                                 return
                                             }
                                             self.loadModel(url: updatableModelURL)
-                                          })
-    updateTask.resume()
+                                           })
+        updateTask.resume()
     }
-}
-
-let applicationDocumentsDirectory: URL = {
-  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-}()
-
-@discardableResult func copyIfNotExists(from: URL, to: URL) -> Bool {
-  if !FileManager.default.fileExists(atPath: to.path) {
-    do {
-      try FileManager.default.copyItem(at: from, to: to)
-      return true
-    } catch {
-      print("Error: \(error)")
-    }
-  }
-  return false
-}
-
-func removeIfExists(at url: URL) {
-  try? FileManager.default.removeItem(at: url)
-}
-
-func createDirectory(at url: URL) {
-  try? FileManager.default.createDirectory(at: url, withIntermediateDirectories: false)
-}
-
-func contentsOfDirectory(at url: URL) -> [URL]? {
-  try? FileManager.default.contentsOfDirectory(at: url, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles])
-}
-
-func contentsOfDirectory(at url: URL, matching predicate: (URL) -> Bool) -> [URL] {
-  contentsOfDirectory(at: url)?.filter(predicate) ?? []
 }

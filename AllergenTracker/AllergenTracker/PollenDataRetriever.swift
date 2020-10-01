@@ -19,26 +19,22 @@ class PollenDataRetriever: ObservableObject {
     }
     
     func loadData(placemark: CLPlacemark?) {
-        let zip = placemark?.postalCode ?? "90024"
-        let fullURLString = baseURLString+zip
-        guard let pollenURL = URL(string: fullURLString) else {
-            print("Invalid URL")
+        guard let zip = placemark?.postalCode else {
+            print(#function, "placemark wasn't valid returning with no data")
             return
         }
+        let fullURLString = baseURLString+zip
+        let pollenURL = URL(string: fullURLString)!
         var request = URLRequest(url: pollenURL)
         request.httpMethod = "GET"
         request.addValue(fullURLString, forHTTPHeaderField: "Referer")
         request.addValue(UserAgentString, forHTTPHeaderField: "User-Agent")
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data {
-                if let jsonString = String(data: data, encoding: .utf8) {
-                            print(jsonString)
-                         }
                 if let decodedResponse = try? JSONDecoder().decode(PollenDataResponse.self, from: data) {
-                    // we have good data – go back to the main thread
-                    print("response decoded")
+                    print(#function, "Response decoded successfully")
                     DispatchQueue.main.async {
-                        // update our UI
+                        // update our UI by updating the published variable
                         self.pollenDataResponse = decodedResponse
                     }
                     return

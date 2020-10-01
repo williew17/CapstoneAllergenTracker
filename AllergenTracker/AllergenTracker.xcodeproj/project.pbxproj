@@ -7,11 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		130FB259251EA35F00E4B21F /* PollenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130FB258251EA35F00E4B21F /* PollenData.swift */; };
-		130FB25C251EC01600E4B21F /* SimpleSymptomRecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130FB25B251EC01600E4B21F /* SimpleSymptomRecorderView.swift */; };
+		130FB259251EA35F00E4B21F /* PollenDataRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130FB258251EA35F00E4B21F /* PollenDataRetriever.swift */; };
 		131288A72515D7A8004B9DD3 /* SymptomRecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131288A62515D7A8004B9DD3 /* SymptomRecorderView.swift */; };
 		131288AA2515D823004B9DD3 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131288A92515D823004B9DD3 /* HistoryView.swift */; };
-		131288B22515E6BD004B9DD3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131288B12515E6BD004B9DD3 /* Constants.swift */; };
+		131288B22515E6BD004B9DD3 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131288B12515E6BD004B9DD3 /* Utilities.swift */; };
 		136BEA70251816110019597D /* PredictionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136BEA6F251816110019597D /* PredictionModel.swift */; };
 		136FE21E25142CE6005697FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136FE21D25142CE6005697FF /* AppDelegate.swift */; };
 		136FE22025142CE6005697FF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136FE21F25142CE6005697FF /* SceneDelegate.swift */; };
@@ -22,18 +21,16 @@
 		136FE22D25142CE7005697FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 136FE22B25142CE7005697FF /* LaunchScreen.storyboard */; };
 		138EBAD62522A58400185D07 /* UpdatableKNN.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 138EBAD52522A58400185D07 /* UpdatableKNN.mlmodel */; };
 		138EBADD2522AA1B00185D07 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138EBADC2522AA1B00185D07 /* LocationManager.swift */; };
-		13EA305A2514954C00752915 /* AtmosphereSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EA30592514954C00752915 /* AtmosphereSummary.swift */; };
 		82251D51AAB6524134C7BF2F /* Pods_AllergenTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0715D9A9CE61C09A49527C15 /* Pods_AllergenTracker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0715D9A9CE61C09A49527C15 /* Pods_AllergenTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AllergenTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C4F233008F73A94693ED14F /* Pods-AllergenTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllergenTracker.debug.xcconfig"; path = "Target Support Files/Pods-AllergenTracker/Pods-AllergenTracker.debug.xcconfig"; sourceTree = "<group>"; };
-		130FB258251EA35F00E4B21F /* PollenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollenData.swift; sourceTree = "<group>"; };
-		130FB25B251EC01600E4B21F /* SimpleSymptomRecorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleSymptomRecorderView.swift; sourceTree = "<group>"; };
+		130FB258251EA35F00E4B21F /* PollenDataRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollenDataRetriever.swift; sourceTree = "<group>"; };
 		131288A62515D7A8004B9DD3 /* SymptomRecorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomRecorderView.swift; sourceTree = "<group>"; };
 		131288A92515D823004B9DD3 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
-		131288B12515E6BD004B9DD3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		131288B12515E6BD004B9DD3 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		136BEA6F251816110019597D /* PredictionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionModel.swift; sourceTree = "<group>"; };
 		136FE21A25142CE6005697FF /* AllergenTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllergenTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		136FE21D25142CE6005697FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,7 +43,6 @@
 		136FE22E25142CE7005697FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		138EBAD52522A58400185D07 /* UpdatableKNN.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = UpdatableKNN.mlmodel; sourceTree = "<group>"; };
 		138EBADC2522AA1B00185D07 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		13EA30592514954C00752915 /* AtmosphereSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtmosphereSummary.swift; sourceTree = "<group>"; };
 		9F9705202604D4E4FDE75011 /* Pods-AllergenTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllergenTracker.release.xcconfig"; path = "Target Support Files/Pods-AllergenTracker/Pods-AllergenTracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,13 +94,11 @@
 				131288A92515D823004B9DD3 /* HistoryView.swift */,
 				138EBADC2522AA1B00185D07 /* LocationManager.swift */,
 				131288A62515D7A8004B9DD3 /* SymptomRecorderView.swift */,
-				130FB25B251EC01600E4B21F /* SimpleSymptomRecorderView.swift */,
-				13EA30592514954C00752915 /* AtmosphereSummary.swift */,
-				130FB258251EA35F00E4B21F /* PollenData.swift */,
+				130FB258251EA35F00E4B21F /* PollenDataRetriever.swift */,
 				136FE22625142CE7005697FF /* Assets.xcassets */,
 				138EBAD52522A58400185D07 /* UpdatableKNN.mlmodel */,
 				136FE22B25142CE7005697FF /* LaunchScreen.storyboard */,
-				131288B12515E6BD004B9DD3 /* Constants.swift */,
+				131288B12515E6BD004B9DD3 /* Utilities.swift */,
 				136FE22E25142CE7005697FF /* Info.plist */,
 				136FE22125142CE6005697FF /* AllergenTracker.xcdatamodeld */,
 				136FE22825142CE7005697FF /* Preview Content */,
@@ -247,15 +241,13 @@
 				136BEA70251816110019597D /* PredictionModel.swift in Sources */,
 				131288AA2515D823004B9DD3 /* HistoryView.swift in Sources */,
 				136FE21E25142CE6005697FF /* AppDelegate.swift in Sources */,
-				13EA305A2514954C00752915 /* AtmosphereSummary.swift in Sources */,
 				136FE22325142CE6005697FF /* AllergenTracker.xcdatamodeld in Sources */,
 				138EBAD62522A58400185D07 /* UpdatableKNN.mlmodel in Sources */,
-				130FB25C251EC01600E4B21F /* SimpleSymptomRecorderView.swift in Sources */,
 				131288A72515D7A8004B9DD3 /* SymptomRecorderView.swift in Sources */,
 				136FE22525142CE6005697FF /* ContentView.swift in Sources */,
 				136FE22025142CE6005697FF /* SceneDelegate.swift in Sources */,
-				131288B22515E6BD004B9DD3 /* Constants.swift in Sources */,
-				130FB259251EA35F00E4B21F /* PollenData.swift in Sources */,
+				131288B22515E6BD004B9DD3 /* Utilities.swift in Sources */,
+				130FB259251EA35F00E4B21F /* PollenDataRetriever.swift in Sources */,
 				138EBADD2522AA1B00185D07 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
