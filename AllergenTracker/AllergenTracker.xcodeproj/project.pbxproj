@@ -1,0 +1,472 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		130FB259251EA35F00E4B21F /* PollenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130FB258251EA35F00E4B21F /* PollenData.swift */; };
+		130FB25C251EC01600E4B21F /* SimpleSymptomRecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130FB25B251EC01600E4B21F /* SimpleSymptomRecorderView.swift */; };
+		131288A72515D7A8004B9DD3 /* SymptomRecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131288A62515D7A8004B9DD3 /* SymptomRecorderView.swift */; };
+		131288AA2515D823004B9DD3 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131288A92515D823004B9DD3 /* HistoryView.swift */; };
+		131288B22515E6BD004B9DD3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131288B12515E6BD004B9DD3 /* Constants.swift */; };
+		136BEA70251816110019597D /* PredictionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136BEA6F251816110019597D /* PredictionModel.swift */; };
+		136FE21E25142CE6005697FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136FE21D25142CE6005697FF /* AppDelegate.swift */; };
+		136FE22025142CE6005697FF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136FE21F25142CE6005697FF /* SceneDelegate.swift */; };
+		136FE22325142CE6005697FF /* AllergenTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 136FE22125142CE6005697FF /* AllergenTracker.xcdatamodeld */; };
+		136FE22525142CE6005697FF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136FE22425142CE6005697FF /* ContentView.swift */; };
+		136FE22725142CE7005697FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 136FE22625142CE7005697FF /* Assets.xcassets */; };
+		136FE22A25142CE7005697FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 136FE22925142CE7005697FF /* Preview Assets.xcassets */; };
+		136FE22D25142CE7005697FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 136FE22B25142CE7005697FF /* LaunchScreen.storyboard */; };
+		138EBAD62522A58400185D07 /* UpdatableKNN.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 138EBAD52522A58400185D07 /* UpdatableKNN.mlmodel */; };
+		138EBADD2522AA1B00185D07 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138EBADC2522AA1B00185D07 /* LocationManager.swift */; };
+		13EA305A2514954C00752915 /* AtmosphereSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EA30592514954C00752915 /* AtmosphereSummary.swift */; };
+		82251D51AAB6524134C7BF2F /* Pods_AllergenTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0715D9A9CE61C09A49527C15 /* Pods_AllergenTracker.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0715D9A9CE61C09A49527C15 /* Pods_AllergenTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AllergenTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C4F233008F73A94693ED14F /* Pods-AllergenTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllergenTracker.debug.xcconfig"; path = "Target Support Files/Pods-AllergenTracker/Pods-AllergenTracker.debug.xcconfig"; sourceTree = "<group>"; };
+		130FB258251EA35F00E4B21F /* PollenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollenData.swift; sourceTree = "<group>"; };
+		130FB25B251EC01600E4B21F /* SimpleSymptomRecorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleSymptomRecorderView.swift; sourceTree = "<group>"; };
+		131288A62515D7A8004B9DD3 /* SymptomRecorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomRecorderView.swift; sourceTree = "<group>"; };
+		131288A92515D823004B9DD3 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		131288B12515E6BD004B9DD3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		136BEA6F251816110019597D /* PredictionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionModel.swift; sourceTree = "<group>"; };
+		136FE21A25142CE6005697FF /* AllergenTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllergenTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		136FE21D25142CE6005697FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		136FE21F25142CE6005697FF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		136FE22225142CE6005697FF /* AllergenTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AllergenTracker.xcdatamodel; sourceTree = "<group>"; };
+		136FE22425142CE6005697FF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		136FE22625142CE7005697FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		136FE22925142CE7005697FF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		136FE22C25142CE7005697FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		136FE22E25142CE7005697FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		138EBAD52522A58400185D07 /* UpdatableKNN.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = UpdatableKNN.mlmodel; sourceTree = "<group>"; };
+		138EBADC2522AA1B00185D07 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		13EA30592514954C00752915 /* AtmosphereSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtmosphereSummary.swift; sourceTree = "<group>"; };
+		9F9705202604D4E4FDE75011 /* Pods-AllergenTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllergenTracker.release.xcconfig"; path = "Target Support Files/Pods-AllergenTracker/Pods-AllergenTracker.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		136FE21725142CE6005697FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82251D51AAB6524134C7BF2F /* Pods_AllergenTracker.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0085CF68BA37FD424397F243 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0C4F233008F73A94693ED14F /* Pods-AllergenTracker.debug.xcconfig */,
+				9F9705202604D4E4FDE75011 /* Pods-AllergenTracker.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		136FE21125142CE6005697FF = {
+			isa = PBXGroup;
+			children = (
+				136FE21C25142CE6005697FF /* AllergenTracker */,
+				136FE21B25142CE6005697FF /* Products */,
+				0085CF68BA37FD424397F243 /* Pods */,
+				705689CDB57FC488482AD0BF /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		136FE21B25142CE6005697FF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				136FE21A25142CE6005697FF /* AllergenTracker.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		136FE21C25142CE6005697FF /* AllergenTracker */ = {
+			isa = PBXGroup;
+			children = (
+				136FE21D25142CE6005697FF /* AppDelegate.swift */,
+				136FE21F25142CE6005697FF /* SceneDelegate.swift */,
+				136FE22425142CE6005697FF /* ContentView.swift */,
+				131288A92515D823004B9DD3 /* HistoryView.swift */,
+				138EBADC2522AA1B00185D07 /* LocationManager.swift */,
+				131288A62515D7A8004B9DD3 /* SymptomRecorderView.swift */,
+				130FB25B251EC01600E4B21F /* SimpleSymptomRecorderView.swift */,
+				13EA30592514954C00752915 /* AtmosphereSummary.swift */,
+				130FB258251EA35F00E4B21F /* PollenData.swift */,
+				136FE22625142CE7005697FF /* Assets.xcassets */,
+				138EBAD52522A58400185D07 /* UpdatableKNN.mlmodel */,
+				136FE22B25142CE7005697FF /* LaunchScreen.storyboard */,
+				131288B12515E6BD004B9DD3 /* Constants.swift */,
+				136FE22E25142CE7005697FF /* Info.plist */,
+				136FE22125142CE6005697FF /* AllergenTracker.xcdatamodeld */,
+				136FE22825142CE7005697FF /* Preview Content */,
+				136BEA6F251816110019597D /* PredictionModel.swift */,
+			);
+			path = AllergenTracker;
+			sourceTree = "<group>";
+		};
+		136FE22825142CE7005697FF /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				136FE22925142CE7005697FF /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		705689CDB57FC488482AD0BF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0715D9A9CE61C09A49527C15 /* Pods_AllergenTracker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		136FE21925142CE6005697FF /* AllergenTracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 136FE23125142CE7005697FF /* Build configuration list for PBXNativeTarget "AllergenTracker" */;
+			buildPhases = (
+				27368FDDB01ADD314EFC4339 /* [CP] Check Pods Manifest.lock */,
+				136FE21625142CE6005697FF /* Sources */,
+				136FE21725142CE6005697FF /* Frameworks */,
+				136FE21825142CE6005697FF /* Resources */,
+				1A7899E1FD04BA67016CF0BB /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AllergenTracker;
+			productName = AllergenTracker;
+			productReference = 136FE21A25142CE6005697FF /* AllergenTracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		136FE21225142CE6005697FF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1170;
+				LastUpgradeCheck = 1200;
+				ORGANIZATIONNAME = "Willie Wu";
+				TargetAttributes = {
+					136FE21925142CE6005697FF = {
+						CreatedOnToolsVersion = 11.7;
+					};
+				};
+			};
+			buildConfigurationList = 136FE21525142CE6005697FF /* Build configuration list for PBXProject "AllergenTracker" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 136FE21125142CE6005697FF;
+			productRefGroup = 136FE21B25142CE6005697FF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				136FE21925142CE6005697FF /* AllergenTracker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		136FE21825142CE6005697FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				136FE22D25142CE7005697FF /* LaunchScreen.storyboard in Resources */,
+				136FE22A25142CE7005697FF /* Preview Assets.xcassets in Resources */,
+				136FE22725142CE7005697FF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1A7899E1FD04BA67016CF0BB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AllergenTracker/Pods-AllergenTracker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AllergenTracker/Pods-AllergenTracker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AllergenTracker/Pods-AllergenTracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		27368FDDB01ADD314EFC4339 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AllergenTracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		136FE21625142CE6005697FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				136BEA70251816110019597D /* PredictionModel.swift in Sources */,
+				131288AA2515D823004B9DD3 /* HistoryView.swift in Sources */,
+				136FE21E25142CE6005697FF /* AppDelegate.swift in Sources */,
+				13EA305A2514954C00752915 /* AtmosphereSummary.swift in Sources */,
+				136FE22325142CE6005697FF /* AllergenTracker.xcdatamodeld in Sources */,
+				138EBAD62522A58400185D07 /* UpdatableKNN.mlmodel in Sources */,
+				130FB25C251EC01600E4B21F /* SimpleSymptomRecorderView.swift in Sources */,
+				131288A72515D7A8004B9DD3 /* SymptomRecorderView.swift in Sources */,
+				136FE22525142CE6005697FF /* ContentView.swift in Sources */,
+				136FE22025142CE6005697FF /* SceneDelegate.swift in Sources */,
+				131288B22515E6BD004B9DD3 /* Constants.swift in Sources */,
+				130FB259251EA35F00E4B21F /* PollenData.swift in Sources */,
+				138EBADD2522AA1B00185D07 /* LocationManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		136FE22B25142CE7005697FF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				136FE22C25142CE7005697FF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		136FE22F25142CE7005697FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		136FE23025142CE7005697FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		136FE23225142CE7005697FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C4F233008F73A94693ED14F /* Pods-AllergenTracker.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"AllergenTracker/Preview Content\"";
+				DEVELOPMENT_TEAM = 25MG78VWY4;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = AllergenTracker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.williewu.AllergenTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		136FE23325142CE7005697FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F9705202604D4E4FDE75011 /* Pods-AllergenTracker.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"AllergenTracker/Preview Content\"";
+				DEVELOPMENT_TEAM = 25MG78VWY4;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = AllergenTracker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.williewu.AllergenTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		136FE21525142CE6005697FF /* Build configuration list for PBXProject "AllergenTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				136FE22F25142CE7005697FF /* Debug */,
+				136FE23025142CE7005697FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		136FE23125142CE7005697FF /* Build configuration list for PBXNativeTarget "AllergenTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				136FE23225142CE7005697FF /* Debug */,
+				136FE23325142CE7005697FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		136FE22125142CE6005697FF /* AllergenTracker.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				136FE22225142CE6005697FF /* AllergenTracker.xcdatamodel */,
+			);
+			currentVersion = 136FE22225142CE6005697FF /* AllergenTracker.xcdatamodel */;
+			path = AllergenTracker.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 136FE21225142CE6005697FF /* Project object */;
+}

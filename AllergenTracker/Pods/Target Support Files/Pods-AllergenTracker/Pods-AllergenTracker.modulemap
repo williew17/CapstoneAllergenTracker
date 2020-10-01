@@ -1,0 +1,6 @@
+framework module Pods_AllergenTracker {
+  umbrella header "Pods-AllergenTracker-umbrella.h"
+
+  export *
+  module * { export * }
+}

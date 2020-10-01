@@ -1,0 +1,16 @@
+PODS:
+  - Matswift (0.1.2)
+
+DEPENDENCIES:
+  - Matswift
+
+SPEC REPOS:
+  trunk:
+    - Matswift
+
+SPEC CHECKSUMS:
+  Matswift: c13fe22e7bdc2a6d5803f8d7d2755fd0574e2fc6
+
+PODFILE CHECKSUM: e6ca645df7b531cc55f3f4912f6cd85f9e22174e
+
+COCOAPODS: 1.9.3

@@ -1,0 +1,609 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		03A6F739C0FFAC2459C8F226583EDC63 /* Matswift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC5287444EED59B082D2BA353717DB /* Matswift-dummy.m */; };
+		1D1E3E3200C101AEEC22E19F7D3A74A7 /* Matswift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 33728B99E076EE8BC69F8D5918860747 /* Matswift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2557E93AD8230F9C793F9E359F83B81B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		66F1D5278671CD5D4B7FD68D2CDC75F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		716BDF8929AE3B8C089CBC448FBF9B37 /* Pods-AllergenTracker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A485FC87B88CC69C1756D6B6191A9848 /* Pods-AllergenTracker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		846E1246B101C153400CD6D343D23BE4 /* Pods-AllergenTracker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A80BD61CB5BB1E418F9357D17588ACD8 /* Pods-AllergenTracker-dummy.m */; };
+		B53485585FC99D4750B1EDA48EE1B121 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEEF40EFA300E33FFC08E930E63F1A8 /* Matrix.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		01056DBB9C2449FF3BD67B56CA5729CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B737B3FF47ABB798896064A18A23F33;
+			remoteInfo = Matswift;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		089A507822975D62749BB9F182EAD1EA /* Pods-AllergenTracker-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AllergenTracker-frameworks.sh"; sourceTree = "<group>"; };
+		099B5C8F8BB0BD6CD3F0CCA092B756CE /* Matswift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Matswift-prefix.pch"; sourceTree = "<group>"; };
+		14D75ACB56B245974D5C9D977C979C6F /* Pods-AllergenTracker-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AllergenTracker-Info.plist"; sourceTree = "<group>"; };
+		2515C851BFA44FEAA4179A991403E42B /* Matswift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Matswift.debug.xcconfig; sourceTree = "<group>"; };
+		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		33728B99E076EE8BC69F8D5918860747 /* Matswift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Matswift-umbrella.h"; sourceTree = "<group>"; };
+		3CAE6D2758922C00040536FA79DA5B2A /* Pods-AllergenTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AllergenTracker.release.xcconfig"; sourceTree = "<group>"; };
+		3DCC5287444EED59B082D2BA353717DB /* Matswift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Matswift-dummy.m"; sourceTree = "<group>"; };
+		4C663B5A968AF2EF17E02B610FDB4ED1 /* Pods-AllergenTracker-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AllergenTracker-acknowledgements.plist"; sourceTree = "<group>"; };
+		6817CCFBE3DA33888F7BAF4179C8CE26 /* Matswift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Matswift.release.xcconfig; sourceTree = "<group>"; };
+		7B245E72198854D138C099B58DB60FD1 /* Pods-AllergenTracker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-AllergenTracker.modulemap"; sourceTree = "<group>"; };
+		83141B8C92B316007BC90EDC750D0E2C /* Pods_AllergenTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AllergenTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		90D402325252BC81257613C16B56C0FB /* Matswift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Matswift.modulemap; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A058F0F7CBC5C53FB1E8F11740EDB664 /* Pods-AllergenTracker-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AllergenTracker-acknowledgements.markdown"; sourceTree = "<group>"; };
+		A485FC87B88CC69C1756D6B6191A9848 /* Pods-AllergenTracker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AllergenTracker-umbrella.h"; sourceTree = "<group>"; };
+		A80BD61CB5BB1E418F9357D17588ACD8 /* Pods-AllergenTracker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AllergenTracker-dummy.m"; sourceTree = "<group>"; };
+		CCC345ADD75F507CCF3FF133DE2AB774 /* Pods-AllergenTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AllergenTracker.debug.xcconfig"; sourceTree = "<group>"; };
+		D739850023E45A12D9E6E3EF5CAE7348 /* Matswift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Matswift-Info.plist"; sourceTree = "<group>"; };
+		EAEEF40EFA300E33FFC08E930E63F1A8 /* Matrix.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Matrix.swift; path = Matswift/Classes/Matrix.swift; sourceTree = "<group>"; };
+		F5922735A0874C8F4B077D8690F200A0 /* Matswift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Matswift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		74A9AD65E9A846F2689287F2D73901BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2557E93AD8230F9C793F9E359F83B81B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBB76A756B221224D5390B7EA2BF905C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66F1D5278671CD5D4B7FD68D2CDC75F1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		05A000EDF88718E610A75B4794A165BF /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				55BE4A351E1D3F5C4A88AA569673F2E2 /* Pods-AllergenTracker */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		17CF2E4744DBA5C170B06ACAB3C561C9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CA48909E7C45B013DDC75555C807D520 /* Matswift */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		55BE4A351E1D3F5C4A88AA569673F2E2 /* Pods-AllergenTracker */ = {
+			isa = PBXGroup;
+			children = (
+				7B245E72198854D138C099B58DB60FD1 /* Pods-AllergenTracker.modulemap */,
+				A058F0F7CBC5C53FB1E8F11740EDB664 /* Pods-AllergenTracker-acknowledgements.markdown */,
+				4C663B5A968AF2EF17E02B610FDB4ED1 /* Pods-AllergenTracker-acknowledgements.plist */,
+				A80BD61CB5BB1E418F9357D17588ACD8 /* Pods-AllergenTracker-dummy.m */,
+				089A507822975D62749BB9F182EAD1EA /* Pods-AllergenTracker-frameworks.sh */,
+				14D75ACB56B245974D5C9D977C979C6F /* Pods-AllergenTracker-Info.plist */,
+				A485FC87B88CC69C1756D6B6191A9848 /* Pods-AllergenTracker-umbrella.h */,
+				CCC345ADD75F507CCF3FF133DE2AB774 /* Pods-AllergenTracker.debug.xcconfig */,
+				3CAE6D2758922C00040536FA79DA5B2A /* Pods-AllergenTracker.release.xcconfig */,
+			);
+			name = "Pods-AllergenTracker";
+			path = "Target Support Files/Pods-AllergenTracker";
+			sourceTree = "<group>";
+		};
+		9EFFF82B32163EE5585EF1861756EC1D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				90D402325252BC81257613C16B56C0FB /* Matswift.modulemap */,
+				3DCC5287444EED59B082D2BA353717DB /* Matswift-dummy.m */,
+				D739850023E45A12D9E6E3EF5CAE7348 /* Matswift-Info.plist */,
+				099B5C8F8BB0BD6CD3F0CCA092B756CE /* Matswift-prefix.pch */,
+				33728B99E076EE8BC69F8D5918860747 /* Matswift-umbrella.h */,
+				2515C851BFA44FEAA4179A991403E42B /* Matswift.debug.xcconfig */,
+				6817CCFBE3DA33888F7BAF4179C8CE26 /* Matswift.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Matswift";
+			sourceTree = "<group>";
+		};
+		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		CA48909E7C45B013DDC75555C807D520 /* Matswift */ = {
+			isa = PBXGroup;
+			children = (
+				EAEEF40EFA300E33FFC08E930E63F1A8 /* Matrix.swift */,
+				9EFFF82B32163EE5585EF1861756EC1D /* Support Files */,
+			);
+			path = Matswift;
+			sourceTree = "<group>";
+		};
+		CB6C4EA4D0492DB941608CC6A0C2F726 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F5922735A0874C8F4B077D8690F200A0 /* Matswift.framework */,
+				83141B8C92B316007BC90EDC750D0E2C /* Pods_AllergenTracker.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				17CF2E4744DBA5C170B06ACAB3C561C9 /* Pods */,
+				CB6C4EA4D0492DB941608CC6A0C2F726 /* Products */,
+				05A000EDF88718E610A75B4794A165BF /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0834CEBB1379A84116EF29F93051C60 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		9A077FA8E6E771D309961FF7FB4C86CB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D1E3E3200C101AEEC22E19F7D3A74A7 /* Matswift-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B95AF64594BD6629C08CE93297DB6BF8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				716BDF8929AE3B8C089CBC448FBF9B37 /* Pods-AllergenTracker-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3B737B3FF47ABB798896064A18A23F33 /* Matswift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C659CDB1096B8D80E1397AA4385BF1C /* Build configuration list for PBXNativeTarget "Matswift" */;
+			buildPhases = (
+				9A077FA8E6E771D309961FF7FB4C86CB /* Headers */,
+				E1CC11A1D6EA31E36DB96C1BA07F6B7A /* Sources */,
+				EBB76A756B221224D5390B7EA2BF905C /* Frameworks */,
+				3E89FCDAC04C01C564EE4642EFA605FD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Matswift;
+			productName = Matswift;
+			productReference = F5922735A0874C8F4B077D8690F200A0 /* Matswift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		8F27D2AAC10EDE4EFD5766261F96A4AC /* Pods-AllergenTracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 86374E9370E3FF7C1F5FDA4526E5B43F /* Build configuration list for PBXNativeTarget "Pods-AllergenTracker" */;
+			buildPhases = (
+				B95AF64594BD6629C08CE93297DB6BF8 /* Headers */,
+				DE7B8840D9102AFA4A0180336C084E2C /* Sources */,
+				74A9AD65E9A846F2689287F2D73901BC /* Frameworks */,
+				04822760BE27077E03ECA1C975F3A672 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F7AFD8B51CC507D4EE9A216776EDA0E8 /* PBXTargetDependency */,
+			);
+			name = "Pods-AllergenTracker";
+			productName = "Pods-AllergenTracker";
+			productReference = 83141B8C92B316007BC90EDC750D0E2C /* Pods_AllergenTracker.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1200;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = CB6C4EA4D0492DB941608CC6A0C2F726 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3B737B3FF47ABB798896064A18A23F33 /* Matswift */,
+				8F27D2AAC10EDE4EFD5766261F96A4AC /* Pods-AllergenTracker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		04822760BE27077E03ECA1C975F3A672 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E89FCDAC04C01C564EE4642EFA605FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DE7B8840D9102AFA4A0180336C084E2C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				846E1246B101C153400CD6D343D23BE4 /* Pods-AllergenTracker-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1CC11A1D6EA31E36DB96C1BA07F6B7A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B53485585FC99D4750B1EDA48EE1B121 /* Matrix.swift in Sources */,
+				03A6F739C0FFAC2459C8F226583EDC63 /* Matswift-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F7AFD8B51CC507D4EE9A216776EDA0E8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Matswift;
+			target = 3B737B3FF47ABB798896064A18A23F33 /* Matswift */;
+			targetProxy = 01056DBB9C2449FF3BD67B56CA5729CC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2817DA18D6141637149EBBB163F31E56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2515C851BFA44FEAA4179A991403E42B /* Matswift.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Matswift/Matswift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Matswift/Matswift-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Matswift/Matswift.modulemap";
+				PRODUCT_MODULE_NAME = Matswift;
+				PRODUCT_NAME = Matswift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		50FA492827648336C92244FCFE0C009B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3CAE6D2758922C00040536FA79DA5B2A /* Pods-AllergenTracker.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-AllergenTracker/Pods-AllergenTracker-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AllergenTracker/Pods-AllergenTracker.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		61FC5749665EDDB2D90E737333B3BA8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		6A3689CA753A2C2376AABA23D927CA9D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CCC345ADD75F507CCF3FF133DE2AB774 /* Pods-AllergenTracker.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-AllergenTracker/Pods-AllergenTracker-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AllergenTracker/Pods-AllergenTracker.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		89878068FCF998730D00C0225C7B97A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6817CCFBE3DA33888F7BAF4179C8CE26 /* Matswift.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Matswift/Matswift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Matswift/Matswift-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Matswift/Matswift.modulemap";
+				PRODUCT_MODULE_NAME = Matswift;
+				PRODUCT_NAME = Matswift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F671B4D3AA8F2CA18D12CD74BD1CDEF9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61FC5749665EDDB2D90E737333B3BA8D /* Debug */,
+				F671B4D3AA8F2CA18D12CD74BD1CDEF9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5C659CDB1096B8D80E1397AA4385BF1C /* Build configuration list for PBXNativeTarget "Matswift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2817DA18D6141637149EBBB163F31E56 /* Debug */,
+				89878068FCF998730D00C0225C7B97A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		86374E9370E3FF7C1F5FDA4526E5B43F /* Build configuration list for PBXNativeTarget "Pods-AllergenTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A3689CA753A2C2376AABA23D927CA9D /* Debug */,
+				50FA492827648336C92244FCFE0C009B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
