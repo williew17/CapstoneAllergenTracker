@@ -46,8 +46,8 @@ struct SymptomRecorderView: View {
                 }
                 Section {
                     Button(action: {
-                        self.saveData()
-                        self.presentationMode.wrappedValue.dismiss() }) {
+                            self.saveData()
+                            self.presentationMode.wrappedValue.dismiss() }) {
                         Text("Submit")
                     }
                 }

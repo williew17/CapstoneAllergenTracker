@@ -11,7 +11,7 @@ import CoreLocation
 import CoreML
 
 struct ContentView: View {
-//    @ObservedObject private var atmosphereSummary = AtmosphereSummary()
+    @Environment(\.colorScheme) var colorScheme
     @ObservedObject private var pollenDataRetriever = PollenDataRetriever()
     @ObservedObject private var predictionModel = PredictionModel()
     @ObservedObject var locationManager = LocationManager()
@@ -20,31 +20,54 @@ struct ContentView: View {
     
     @State private var oldZip = "Not Found"
     
+    private var gridHeaders = ["Type", "Concentration", "Name"]
+    private var todaysTriggers: [IdentifiableTrigger] {
+        pollenDataRetriever.getTodaysTriggers()
+    }
+    
     var body: some View {
         NavigationView {
             VStack {
-                Text("Current Allergen Summary")
+                Text("Current Allergens").font(.largeTitle).padding()
                 VStack {
-                    Text(pollenDataRetriever.getGeneralSummary(periodType: "Today"))
-                    ForEach(pollenDataRetriever.getTodaysTriggers()) { iTrigger in
-                        Text(iTrigger.trigger.createTextString())
+                    Text("Today in \(pollenDataRetriever.getDisplayLocation(periodType: "Today"))").font(.title)
+                    Text("Pollen Index: \(pollenDataRetriever.getPollenIndex(periodType: "Today"))").font(.title)
+                    GridStack(rows: self.todaysTriggers.count, columns: 3, headers: gridHeaders) { row, col in
+                        if col == 0 {
+                            Text("\(todaysTriggers[row].trigger.PlantType)")
+                        } else if col == 1 {
+                            Text("\(todaysTriggers[row].trigger.LGID)")
+                        } else {
+                            Text("\(todaysTriggers[row].trigger.Name)")
+                        }
                     }
+                    
                 }
-                VStack {
-                    Text("Symptoms:")
-                    ForEach((0...Symptoms.symptomList.count-1), id:\.self) { index in
-                        Text("\(Symptoms.symptomList[index]) = \(symptomSeverities[index])")
-                    }
-                }
-                Button(action: {
-                    self.showingSymptomRecorder = true
-                }) { Text("Record Symptoms") }
                 Spacer()
+                VStack {
+                    Text("Predicted Symptoms").font(.title)
+                    ForEach((0...Symptoms.symptomList.count-1), id:\.self) { index in
+                        Text("\(Symptoms.symptomList[index]): \(Symptoms.numberSeverity[symptomSeverities[index], default: "Unknown"])")
+                    }
+                    Button(action: {
+                        self.showingSymptomRecorder = true
+                    }) { Text("Record Symptoms").fontWeight(.semibold) }
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(Color.accentColor)
+                    .cornerRadius(40)
+                }
+                .padding(10)
+                .frame(minWidth: 0, maxWidth: .infinity)
+                .background(colorScheme == .dark ? Color.black.opacity(0.2).edgesIgnoringSafeArea(.all) : Color.white.opacity(0.2).edgesIgnoringSafeArea(.all))
+                .border(width: 1, edges: [.top], color: Color.black)
             }
+            .background(AngularGradient(gradient: Gradient(colors: [Color.green, colorScheme == .dark ? Color.black : Color.white, Color.green]), center: .top ).edgesIgnoringSafeArea(.all))
             .sheet(isPresented: $showingSymptomRecorder) {
                 SymptomRecorderView(pollenDataRetriever: pollenDataRetriever, predictionModel: predictionModel)
             }
-            .navigationBarTitle(Text("Allergen Tracker"))
+            .navigationBarTitle(Text("Allergen Tracker"), displayMode: .inline)
             .navigationBarItems(leading: NavigationLink(destination: HistoryView()) { Text("History") },
                                 trailing: Button(action: {loadInformation()}) { Text("Refresh")})
         }
@@ -54,6 +77,7 @@ struct ContentView: View {
                 loadInformation()
             }
         }
+        
     }
     
     func parsePrediction(predictionString: String) {

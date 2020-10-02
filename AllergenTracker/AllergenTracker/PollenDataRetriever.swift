@@ -61,15 +61,27 @@ class PollenDataRetriever: ObservableObject {
         return []
     }
     
-    func getGeneralSummary(periodType: String) -> String {
+    
+    func getDisplayLocation(periodType: String) -> String {
         if let locationResponse: LocationResponse = self.pollenDataResponse.Location {
             for period in locationResponse.periods {
                 if period.Type == periodType {
-                    return "\(periodType) in \(locationResponse.DisplayLocation), Pollen Index = \(period.Index)"
+                    return locationResponse.DisplayLocation
                 }
             }
         }
-        return "No data found"
+        return "Unknown Location"
+    }
+    
+    func getPollenIndex(periodType: String) -> String {
+        if let locationResponse: LocationResponse = self.pollenDataResponse.Location {
+            for period in locationResponse.periods {
+                if period.Type == periodType {
+                    return String(period.Index)
+                }
+            }
+        }
+        return "???"
     }
 }
 
@@ -98,11 +110,6 @@ struct Trigger: Codable {
     var Name: String
     var Genus: String
     var PlantType: String
-    
-    func createTextString() -> String {
-        let textString = "Type: \(self.PlantType), Concentration: \(self.LGID), Name: \(self.Name)"
-        return textString
-    }
 }
 
 struct IdentifiableTrigger: Identifiable {

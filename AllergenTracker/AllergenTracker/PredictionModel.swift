@@ -55,7 +55,6 @@ class PredictionModel: ObservableObject {
         do {
             let prediction = try updatableModel?.prediction(from: input)
             let output = prediction?.featureValue(for: "output")?.stringValue
-            print(prediction?.featureNames ?? "Not Found")
             return output
         } catch {
             print("there was an issue with predict")

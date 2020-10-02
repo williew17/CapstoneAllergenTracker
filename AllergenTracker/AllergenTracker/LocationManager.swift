@@ -14,15 +14,15 @@ class LocationManager: NSObject, ObservableObject {
     private let locationManager = CLLocationManager()
     let objectWillChange = PassthroughSubject<String, Never>()
     private let geocoder = CLGeocoder()
-
+    
     @Published var zip: String? {
         willSet { objectWillChange.send(zip ?? "Not Found") }
     }
     
     @Published var status: CLAuthorizationStatus?
-
+    
     @Published var location: CLLocation?
-
+    
     override init() {
         super.init()
         self.locationManager.delegate = self
@@ -30,9 +30,9 @@ class LocationManager: NSObject, ObservableObject {
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
     }
-
+    
     @Published var placemark: CLPlacemark?
-
+    
     private func geocode() {
         guard let location = self.location else { return }
         geocoder.reverseGeocodeLocation(location, completionHandler: { (places, error) in
@@ -50,7 +50,7 @@ extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         self.status = status
     }
-
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
         self.location = location
