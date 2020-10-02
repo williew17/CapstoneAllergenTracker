@@ -17,6 +17,7 @@ struct SymptomRecorderView: View {
     @State var date = Date()
     @State private var experiencingSymptoms = false
     @State private var symptomDataList: [(doesExist: Bool, severity: Int)] = Array(repeating: (false, 0), count: Symptoms.symptomList.count)
+    @State private var manualLGID: [Double] = Array(repeating: 0.0, count: 3)
     
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -32,6 +33,25 @@ struct SymptomRecorderView: View {
                 DatePicker(selection: $date, in: ...Date(), displayedComponents: .date) {
                                 Text("Select a date")
                             }
+                if Calendar.current.compare(Date(), to: date, toGranularity: .day) != .orderedSame {
+                    Section(header: Text("Past data requires manual trigger entry")) {
+                        Picker(selection: $manualLGID[0], label: Text("Grass Concentration")) {
+                            ForEach(0 ..< 2000) {
+                                Text(String($0))
+                            }
+                        }
+                        Picker(selection: $manualLGID[1], label: Text("Tree Concentration")) {
+                            ForEach(0 ..< 2000) {
+                                Text(String($0))
+                            }
+                        }
+                        Picker(selection: $manualLGID[1], label: Text("Ragweed Concentration")) {
+                            ForEach(0 ..< 2000) {
+                                Text(String($0))
+                            }
+                        }
+                    }
+                }
                 
                 Section(header: Text("Experiencing Symptoms?")) {
                     Picker(selection: $experiencingSymptoms, label: Text("Are you experiencing symptoms today?")) {
@@ -96,7 +116,7 @@ struct SymptomRecorderView: View {
             arr[1] = NSNumber(floatLiteral: pollenTypeIndexes[1])
             arr[2] = NSNumber(floatLiteral: pollenTypeIndexes[2])
             predictionModel.update(inputArray: arr, output: symptomString)
-        } else { print("failed in SymptomRecorder") }
+        } else { print(#function, "Failed to create MLMultiArray") }
     }
     
     func consolidateTriggerListByType(triggers: [IdentifiableTrigger]) -> [Double] {
