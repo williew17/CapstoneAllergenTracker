@@ -57,7 +57,7 @@ class PredictionModel: ObservableObject {
             let output = prediction?.featureValue(for: "output")?.stringValue
             return output
         } catch {
-            print("there was an issue with predict")
+            print(#function, "There was an issue with prediction")
         }
         return nil
     }

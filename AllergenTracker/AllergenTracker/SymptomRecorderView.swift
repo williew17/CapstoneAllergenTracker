@@ -14,13 +14,25 @@ struct SymptomRecorderView: View {
     @Environment(\.managedObjectContext) var moc
     @ObservedObject var pollenDataRetriever: PollenDataRetriever
     @ObservedObject var predictionModel: PredictionModel
+    @State var date = Date()
     @State private var experiencingSymptoms = false
     @State private var symptomDataList: [(doesExist: Bool, severity: Int)] = Array(repeating: (false, 0), count: Symptoms.symptomList.count)
     
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US")
+        formatter.dateStyle = .short
+        formatter.timeStyle = .none
+        return formatter
+        }
     
     var body: some View {
         NavigationView {
             Form {
+                DatePicker(selection: $date, in: ...Date(), displayedComponents: .date) {
+                                Text("Select a date")
+                            }
+                
                 Section(header: Text("Experiencing Symptoms?")) {
                     Picker(selection: $experiencingSymptoms, label: Text("Are you experiencing symptoms today?")) {
                         Text("No").tag(false)
@@ -52,7 +64,7 @@ struct SymptomRecorderView: View {
                     }
                 }
             }
-            .navigationBarTitle(Text("Todays Symptoms"))
+            .navigationBarTitle(Text("\(date, formatter: dateFormatter) Symptoms"))
         }
     }
     
