@@ -124,3 +124,51 @@ struct EdgeBorder: Shape {
         return path
     }
 }
+
+///source: https://gist.github.com/mobilinked/9b6086b3760bcf1e5432932dad0813c0
+struct MbModalHackView: UIViewControllerRepresentable {
+    var dismissable: () -> Bool = { false }
+    func makeUIViewController(context: UIViewControllerRepresentableContext<MbModalHackView>) -> UIViewController {
+        UIViewController()
+    }
+    func updateUIViewController(_ uiViewController: UIViewController, context: UIViewControllerRepresentableContext<MbModalHackView>) {
+        rootViewController(of: uiViewController).presentationController?.delegate = context.coordinator
+    }
+    private func rootViewController(of uiViewController: UIViewController) -> UIViewController {
+        if let parent = uiViewController.parent {
+            return rootViewController(of: parent)
+        }
+        else {
+            return uiViewController
+        }
+    }
+    func makeCoordinator() -> Coordinator {
+        Coordinator(dismissable: dismissable)
+    }
+    class Coordinator: NSObject, UIAdaptivePresentationControllerDelegate {
+        var dismissable: () -> Bool = { false }
+        init(dismissable: @escaping () -> Bool) {
+            self.dismissable = dismissable
+        }
+        func presentationControllerShouldDismiss(_ presentationController: UIPresentationController) -> Bool {
+            dismissable()
+        }
+    }
+}
+
+extension View {
+    public func allowAutoDismiss(_ dismissable: @escaping () -> Bool) -> some View {
+        self
+            .background(MbModalHackView(dismissable: dismissable))
+    }
+}
+
+
+///from https://stackoverflow.com/questions/58837007/multiple-sheetispresented-doesnt-work-in-swiftui
+enum ActiveSheet: Identifiable {
+    case first, second
+    
+    var id: Int {
+        hashValue
+    }
+}

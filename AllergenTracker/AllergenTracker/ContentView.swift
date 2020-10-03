@@ -15,9 +15,10 @@ struct ContentView: View {
     @ObservedObject private var pollenDataRetriever = PollenDataRetriever()
     @ObservedObject private var predictionModel = PredictionModel()
     @ObservedObject var locationManager = LocationManager()
+    
+    @State var activeSheet: ActiveSheet? = UserDefaults.standard.object(forKey: "profile") == nil ? .first : nil
     @State private var showingSymptomRecorder = false
     @State private var symptomSeverities: [String] = ["0", "0", "0", "0", "0"]
-    
     @State private var oldZip = "Not Found"
     
     private var gridHeaders = ["Type", "Concentration", "Name"]
@@ -50,7 +51,7 @@ struct ContentView: View {
                         Text("\(Symptoms.symptomList[index]): \(Symptoms.numberSeverity[symptomSeverities[index], default: "Unknown"])")
                     }
                     Button(action: {
-                        self.showingSymptomRecorder = true
+                        self.activeSheet = .second
                     }) { Text("Record Symptoms").fontWeight(.semibold) }
                     .frame(minWidth: 0, maxWidth: .infinity)
                     .padding()
@@ -64,9 +65,21 @@ struct ContentView: View {
                 .border(width: 1, edges: [.top], color: Color.black)
             }
             .background(AngularGradient(gradient: Gradient(colors: [Color.green, colorScheme == .dark ? Color.black : Color.white, Color.green]), center: .top ).edgesIgnoringSafeArea(.all))
-            .sheet(isPresented: $showingSymptomRecorder) {
-                SymptomRecorderView(pollenDataRetriever: pollenDataRetriever, predictionModel: predictionModel)
+            .sheet(item: $activeSheet, onDismiss: { activeSheet = nil }) { item in
+                switch item {
+                case .first:
+                    UserProfileRecorder(predictionModel: predictionModel).allowAutoDismiss { false }
+                case .second:
+                    SymptomRecorderView(pollenDataRetriever: pollenDataRetriever, predictionModel: predictionModel)
+                }
+                
             }
+//            .sheet(isPresented: $showingSymptomRecorder) {
+//                SymptomRecorderView(pollenDataRetriever: pollenDataRetriever, predictionModel: predictionModel)
+//            }
+//            .sheet(isPresented: $notFoundProfile) {
+//                UserProfileRecorder().allowAutoDismiss { false }
+//            }
             .navigationBarTitle(Text("Allergen Tracker"), displayMode: .inline)
             .navigationBarItems(leading: NavigationLink(destination: HistoryView()) { Text("History") },
                                 trailing: Button(action: {loadInformation()}) { Text("Refresh")})

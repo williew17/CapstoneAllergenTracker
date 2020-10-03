@@ -14,6 +14,22 @@ class PredictionModel: ObservableObject {
     var modelNameString: String = "UpdatableKNN"
     private static let appDirectory = FileManager.default.urls(for: .applicationSupportDirectory,
                                                                in: .userDomainMask).first!
+    func chooseModel() {
+        if let profileData = UserDefaults.standard.data(forKey: "profile") {
+            let decoder = JSONDecoder()
+            if let decoded = try? decoder.decode(UserProfile.self, from: profileData) {
+                let userProfile = decoded
+                let defaultChosenURL = urlFromProfile(userProfile: userProfile)
+                loadModel(url: defaultChosenURL)
+                return
+            }
+        }
+    }
+    
+    private func urlFromProfile(userProfile: UserProfile) -> URL {
+        let modelURL = PredictionModel.appDirectory.appendingPathComponent("\(modelNameString).mlmodelc")
+        return modelURL
+    }
     
     private func loadModel(url: URL) {
         guard FileManager.default.fileExists(atPath: url.path) else {
