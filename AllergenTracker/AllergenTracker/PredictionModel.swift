@@ -112,10 +112,9 @@ class PredictionModel: ObservableObject {
                                                 // Replace any previously updated model with this one.
                                                 _ = try fileManager.replaceItemAt(updatableModelURL,
                                                                                   withItemAt: tempUpdatableModelURL)
-                                                
-                                                print("Updated model saved to:\n\t\(updatableModelURL)")
+                                                print(#function, "Updated model saved to:\n\t\(updatableModelURL)")
                                             } catch let error {
-                                                print("Could not save updated model to the file system: \(error)")
+                                                print(#function, "Could not save updated model to the file system: \(error)")
                                                 return
                                             }
                                             self.loadModel(url: updatableModelURL)

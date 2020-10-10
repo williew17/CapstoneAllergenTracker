@@ -17,7 +17,7 @@ struct SymptomRecorderView: View {
     @State var date = Date()
     @State private var experiencingSymptoms = false
     @State private var symptomDataList: [(doesExist: Bool, severity: Int)] = Array(repeating: (false, 0), count: Symptoms.symptomList.count)
-    @State private var manualLGID: [Double] = Array(repeating: 0.0, count: 3)
+    @State private var manualLGID: [Int] = [100,100,100]
     
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -45,7 +45,7 @@ struct SymptomRecorderView: View {
                                 Text(String($0))
                             }
                         }
-                        Picker(selection: $manualLGID[1], label: Text("Ragweed Concentration")) {
+                        Picker(selection: $manualLGID[2], label: Text("Ragweed Concentration")) {
                             ForEach(0 ..< 2000) {
                                 Text(String($0))
                             }
@@ -90,13 +90,23 @@ struct SymptomRecorderView: View {
     
     func saveData() {
         var symptomString = ""
-        let identTriggers = self.pollenDataRetriever.getTodaysTriggers()
+        
         var triggerList: [Trigger] = []
-        for identTrigger in identTriggers {
-            triggerList.append(identTrigger.trigger)
+        
+        if Calendar.current.compare(Date(), to: date, toGranularity: .day) != .orderedSame {
+            triggerList.append(Trigger(LGID: self.manualLGID[0], Name: "Unknown", Genus: "Unknown", PlantType: "Grass"))
+            triggerList.append(Trigger(LGID: self.manualLGID[1], Name: "Unknown", Genus: "Unknown", PlantType: "Tree"))
+            triggerList.append(Trigger(LGID: self.manualLGID[2], Name: "Unknown", Genus: "Unknown", PlantType: "Ragweed"))
+        } else {
+            let identTriggers = self.pollenDataRetriever.getTodaysTriggers()
+            for identTrigger in identTriggers {
+                triggerList.append(identTrigger.trigger)
+            }
         }
+        
         let jsonData = try! JSONEncoder().encode(triggerList)
         let jsonString = String(data: jsonData, encoding: .utf8)!
+        
         for tup in self.symptomDataList {
             if tup.doesExist {
                 symptomString+=String(tup.severity)
@@ -104,13 +114,13 @@ struct SymptomRecorderView: View {
                 symptomString+="0"
             }
         }
-        let cdHistory = CDHistory(context: self.moc)
+        let cdHistory = History(context: self.moc)
         cdHistory.id = UUID()
         cdHistory.symptoms = symptomString
         cdHistory.trigger = jsonString
-        cdHistory.date = Date()
+        cdHistory.date = self.date
         try? self.moc.save()
-        let pollenTypeIndexes = consolidateTriggerListByType(triggers: identTriggers)
+        let pollenTypeIndexes = consolidateTriggerListByType(triggers: triggerList)
         if let arr = try? MLMultiArray(shape: [3], dataType: MLMultiArrayDataType.float32) {
             arr[0] = NSNumber(floatLiteral: pollenTypeIndexes[0])
             arr[1] = NSNumber(floatLiteral: pollenTypeIndexes[1])
@@ -119,18 +129,18 @@ struct SymptomRecorderView: View {
         } else { print(#function, "Failed to create MLMultiArray") }
     }
     
-    func consolidateTriggerListByType(triggers: [IdentifiableTrigger]) -> [Double] {
+    func consolidateTriggerListByType(triggers: [Trigger]) -> [Double] {
         var grassTotal = 0.0
         var treeTotal = 0.0
         var weedTotal = 0.0
-        for identTrigger in triggers {
-            switch identTrigger.trigger.PlantType {
+        for trigger in triggers {
+            switch trigger.PlantType {
             case "Grass":
-                grassTotal+=Double(identTrigger.trigger.LGID)
+                grassTotal+=Double(trigger.LGID)
             case "Tree":
-                treeTotal+=Double(identTrigger.trigger.LGID)
+                treeTotal+=Double(trigger.LGID)
             case "Ragweed":
-                weedTotal+=Double(identTrigger.trigger.LGID)
+                weedTotal+=Double(trigger.LGID)
             default:
                 print("Error unknown type found")
             }

@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		130B7C2C252836BE00AB612A /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 130B7C2B252836BE00AB612A /* SwiftUICharts */; };
 		130FB259251EA35F00E4B21F /* PollenDataRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130FB258251EA35F00E4B21F /* PollenDataRetriever.swift */; };
 		131288A72515D7A8004B9DD3 /* SymptomRecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131288A62515D7A8004B9DD3 /* SymptomRecorderView.swift */; };
 		131288AA2515D823004B9DD3 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131288A92515D823004B9DD3 /* HistoryView.swift */; };
@@ -23,6 +24,8 @@
 		1387E6BE2527E12D000D1D6A /* UserProfileRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1387E6BD2527E12D000D1D6A /* UserProfileRecorder.swift */; };
 		138EBAD62522A58400185D07 /* UpdatableKNN.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 138EBAD52522A58400185D07 /* UpdatableKNN.mlmodel */; };
 		138EBADD2522AA1B00185D07 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138EBADC2522AA1B00185D07 /* LocationManager.swift */; };
+		139055152529B410000BE21C /* History+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139055132529B410000BE21C /* History+CoreDataClass.swift */; };
+		139055162529B410000BE21C /* History+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139055142529B410000BE21C /* History+CoreDataProperties.swift */; };
 		82251D51AAB6524134C7BF2F /* Pods_AllergenTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0715D9A9CE61C09A49527C15 /* Pods_AllergenTracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +50,8 @@
 		1387E6BD2527E12D000D1D6A /* UserProfileRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileRecorder.swift; sourceTree = "<group>"; };
 		138EBAD52522A58400185D07 /* UpdatableKNN.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = UpdatableKNN.mlmodel; sourceTree = "<group>"; };
 		138EBADC2522AA1B00185D07 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		139055132529B410000BE21C /* History+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "History+CoreDataClass.swift"; sourceTree = "<group>"; };
+		139055142529B410000BE21C /* History+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "History+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9F9705202604D4E4FDE75011 /* Pods-AllergenTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllergenTracker.release.xcconfig"; path = "Target Support Files/Pods-AllergenTracker/Pods-AllergenTracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,6 +61,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82251D51AAB6524134C7BF2F /* Pods_AllergenTracker.framework in Frameworks */,
+				130B7C2C252836BE00AB612A /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +98,8 @@
 		136FE21C25142CE6005697FF /* AllergenTracker */ = {
 			isa = PBXGroup;
 			children = (
+				139055132529B410000BE21C /* History+CoreDataClass.swift */,
+				139055142529B410000BE21C /* History+CoreDataProperties.swift */,
 				136FE21D25142CE6005697FF /* AppDelegate.swift */,
 				136FE21F25142CE6005697FF /* SceneDelegate.swift */,
 				136FE22425142CE6005697FF /* ContentView.swift */,
@@ -147,6 +155,9 @@
 			dependencies = (
 			);
 			name = AllergenTracker;
+			packageProductDependencies = (
+				130B7C2B252836BE00AB612A /* SwiftUICharts */,
+			);
 			productName = AllergenTracker;
 			productReference = 136FE21A25142CE6005697FF /* AllergenTracker.app */;
 			productType = "com.apple.product-type.application";
@@ -175,6 +186,9 @@
 				Base,
 			);
 			mainGroup = 136FE21125142CE6005697FF;
+			packageReferences = (
+				130B7C2A252836BE00AB612A /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = 136FE21B25142CE6005697FF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -254,9 +268,11 @@
 				136FE22525142CE6005697FF /* ContentView.swift in Sources */,
 				136FE22025142CE6005697FF /* SceneDelegate.swift in Sources */,
 				1387E6BB2527DCFC000D1D6A /* UserProfile.swift in Sources */,
+				139055152529B410000BE21C /* History+CoreDataClass.swift in Sources */,
 				131288B22515E6BD004B9DD3 /* Utilities.swift in Sources */,
 				130FB259251EA35F00E4B21F /* PollenDataRetriever.swift in Sources */,
 				138EBADD2522AA1B00185D07 /* LocationManager.swift in Sources */,
+				139055162529B410000BE21C /* History+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +470,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		130B7C2A252836BE00AB612A /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		130B7C2B252836BE00AB612A /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 130B7C2A252836BE00AB612A /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		136FE22125142CE6005697FF /* AllergenTracker.xcdatamodeld */ = {

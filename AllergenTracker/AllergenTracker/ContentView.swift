@@ -74,15 +74,9 @@ struct ContentView: View {
                 }
                 
             }
-//            .sheet(isPresented: $showingSymptomRecorder) {
-//                SymptomRecorderView(pollenDataRetriever: pollenDataRetriever, predictionModel: predictionModel)
-//            }
-//            .sheet(isPresented: $notFoundProfile) {
-//                UserProfileRecorder().allowAutoDismiss { false }
-//            }
             .navigationBarTitle(Text("Allergen Tracker"), displayMode: .inline)
             .navigationBarItems(leading: NavigationLink(destination: HistoryView()) { Text("History") },
-                                trailing: Button(action: {loadInformation()}) { Text("Refresh")})
+                                trailing: Button(action: {loadInformation()}) {Image(systemName: "arrow.clockwise")})
         }
         .onReceive(locationManager.objectWillChange) { outPut in
             if outPut != self.oldZip {
