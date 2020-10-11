@@ -8,6 +8,7 @@
 
 import SwiftUI
 import CoreML
+import Combine
 
 struct SymptomRecorderView: View {
     @Environment(\.presentationMode) var presentationMode
@@ -17,7 +18,7 @@ struct SymptomRecorderView: View {
     @State var date = Date()
     @State private var experiencingSymptoms = false
     @State private var symptomDataList: [(doesExist: Bool, severity: Int)] = Array(repeating: (false, 0), count: Symptoms.symptomList.count)
-    @State private var manualLGID: [Int] = [100,100,100]
+    @State private var manualLGID: [String] = ["100","100","100"]
     
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -35,20 +36,30 @@ struct SymptomRecorderView: View {
                             }
                 if Calendar.current.compare(Date(), to: date, toGranularity: .day) != .orderedSame {
                     Section(header: Text("Past data requires manual trigger entry")) {
-                        Picker(selection: $manualLGID[0], label: Text("Grass Concentration")) {
-                            ForEach(0 ..< 2000) {
-                                Text(String($0))
-                            }
+                        
+                        TextField("Grass Concentration", text: $manualLGID[0])
+                            .keyboardType(.numberPad)
+                            .onReceive(Just(manualLGID[0])) { newValue in
+                                let filtered = newValue.filter { "0123456789".contains($0) }
+                                if filtered != newValue {
+                                    self.manualLGID[0] = filtered
+                                }
                         }
-                        Picker(selection: $manualLGID[1], label: Text("Tree Concentration")) {
-                            ForEach(0 ..< 2000) {
-                                Text(String($0))
-                            }
+                        TextField("Tree Concentration", text: $manualLGID[1])
+                            .keyboardType(.numberPad)
+                            .onReceive(Just(manualLGID[1])) { newValue in
+                                let filtered = newValue.filter { "0123456789".contains($0) }
+                                if filtered != newValue {
+                                    self.manualLGID[1] = filtered
+                                }
                         }
-                        Picker(selection: $manualLGID[2], label: Text("Ragweed Concentration")) {
-                            ForEach(0 ..< 2000) {
-                                Text(String($0))
-                            }
+                        TextField("Weed Concentration", text: $manualLGID[2])
+                            .keyboardType(.numberPad)
+                            .onReceive(Just(manualLGID[2])) { newValue in
+                                let filtered = newValue.filter { "0123456789".contains($0) }
+                                if filtered != newValue {
+                                    self.manualLGID[2] = filtered
+                                }
                         }
                     }
                 }
@@ -94,9 +105,9 @@ struct SymptomRecorderView: View {
         var triggerList: [Trigger] = []
         
         if Calendar.current.compare(Date(), to: date, toGranularity: .day) != .orderedSame {
-            triggerList.append(Trigger(LGID: self.manualLGID[0], Name: "Unknown", Genus: "Unknown", PlantType: "Grass"))
-            triggerList.append(Trigger(LGID: self.manualLGID[1], Name: "Unknown", Genus: "Unknown", PlantType: "Tree"))
-            triggerList.append(Trigger(LGID: self.manualLGID[2], Name: "Unknown", Genus: "Unknown", PlantType: "Ragweed"))
+            triggerList.append(Trigger(LGID: Int(self.manualLGID[0])!, Name: "Unknown", Genus: "Unknown", PlantType: "Grass"))
+            triggerList.append(Trigger(LGID: Int(self.manualLGID[1])!, Name: "Unknown", Genus: "Unknown", PlantType: "Tree"))
+            triggerList.append(Trigger(LGID: Int(self.manualLGID[2])!, Name: "Unknown", Genus: "Unknown", PlantType: "Ragweed"))
         } else {
             let identTriggers = self.pollenDataRetriever.getTodaysTriggers()
             for identTrigger in identTriggers {

@@ -15,46 +15,84 @@ struct HistoryView: View {
                   sortDescriptors: [NSSortDescriptor(keyPath: \History.date, ascending: false)]) var historyList: FetchedResults<History>
 //    @Environment(\.managedObjectContext) var moc
     @State var tabIndex: Int = 1
+    /// 1 for max, 2 for avg
+    @State var symptomType: Int = 1
+    @State var monthsToLoad: Int = 3
     var cdData: [simpleHistoryEntry] {
         var arr:[simpleHistoryEntry] = []
+        let date = Date()
         for his in historyList {
-            arr.append(simpleHistoryEntry(history: his))
+            let months = date.months(from: his.date ?? Date())
+            if months < self.monthsToLoad {
+                arr.append(simpleHistoryEntry(history: his))
+            }
         }
         return arr
     }
     
     var body: some View {
         VStack {
-            
-            Button(action: {
-                print(historyList)
-                for hist in historyList {
-                    print(hist.date ?? "Unkown")
-                    print(hist.trigger ?? "History trigger was nil")
-                }
-                
-            }) { Text("TEST").fontWeight(.semibold) }
+//            Button(action: {
+//                print(historyList)
+//                for hist in historyList {
+//                    print(hist.date ?? "Unkown")
+//                    print(hist.trigger ?? "History trigger was nil")
+//                }
+//            }) { Text("TEST").fontWeight(.semibold) }.padding()
+            VStack {
+                Text("Symptoms graph by: ")
+                Picker(selection: $symptomType, label: Text("Symptoms graph by: ")) {
+                    Text("Max Severity").tag(1)
+                    Text("Average Severity").tag(2)
+                }.pickerStyle(SegmentedPickerStyle())
+                Text("Amount of data to load: ")
+                Picker(selection: $monthsToLoad, label: Text("Amount of data to load")) {
+                    Text("3 months").tag(3)
+                    Text("6 months").tag(6)
+                    Text("1 year").tag(12)
+                    Text("All").tag(50)
+                }.pickerStyle(SegmentedPickerStyle())
+            }.padding(5)
+            .isHidden(tabIndex == 3,remove:true)
             
             TabView(selection: $tabIndex) {
-                BarCharts(cdData: self.cdData).tabItem { Group{
+                BarCharts(cdData: self.cdData, symptomType: self.symptomType).tabItem { Group{
                     Image(systemName: "chart.bar")
                     Text("Bar charts")
                 }}.tag(0)
-                MultiLineCharts(cdData: self.cdData).tabItem { Group{
+                MultiLineCharts(cdData: self.cdData, symptomType: self.symptomType).tabItem { Group{
                     Image(systemName: "waveform.path.ecg")
                     Text("MultiLine charts")
                 }}.tag(1)
+                List {
+                    ForEach(historyList, id: \.self) { history in
+                        RawHistoryView(history: history)
+                    }
+                }.tabItem { Group{
+                    Image(systemName: "list.dash")
+                    Text("Raw Data")
+                } }.tag(3)
             }
-        }
+        }.background(Color.gray.opacity(0.1).edgesIgnoringSafeArea(.all))
     }
 }
 
 struct MultiLineCharts: View {
     var cdData: [simpleHistoryEntry]
+    var symptomType: Int
+    var chartStyle: ChartStyle {
+        let style = Styles.barChartStyleNeonBlueLight
+        style.darkModeStyle = Styles.barChartStyleNeonBlueDark
+        return style
+    }
     var graphedData: [[Double]] {
         var arr: [[Double]] = [[],[],[],[]]
         for entry in cdData {
-            arr[0].append(entry.msSymptom*100)
+            if self.symptomType == 1 {
+                arr[0].append(entry.msSymptom*100)
+            } else {
+                arr[0].append(entry.avgSymptom*100)
+            }
             arr[1].append(entry.grassPollenIndex)
             arr[2].append(entry.treePollenIndex)
             arr[3].append(entry.weedPollenIndex)
@@ -63,44 +101,55 @@ struct MultiLineCharts: View {
         arr[1].reverse()
         arr[2].reverse()
         arr[3].reverse()
-//        print(arr)
         return arr
     }
     var body: some View {
         VStack {
-            Text("Maximum Symptom Severity vs Major Pollen Types").font(.title)
+            Text("Symptom Severity and Major Pollen Types").font(.title).multilineTextAlignment(.center)
             MultiLineChartView(data: [(graphedData[0], GradientColors.orange),
-                                      (graphedData[1], GradientColors.blue),
-                                      (graphedData[2], GradientColors.green),
-                                      (graphedData[3], GradientColors.blu)],
+                                      (graphedData[1], GradientColors.blu),
+                                      (graphedData[2], GradientColor(start: Color.green, end: Color(Color.RGBColorSpace.sRGB, red: 0, green: 1.0, blue: 0.5, opacity: 1.0))),
+                                      (graphedData[3], GradientColors.purple)],
                                title: "Recorded Symptoms",
-                               form: ChartForm.extraLarge)
-            Spacer()
+                               style: chartStyle,
+                               form: CGSize(width: 360, height: 241))
+            ScrollView {
+                Text("Shows the symptoms in orange compared to the different types of pollen's concentrations. The pollen type you are most senstive to is likely to track the orange line the closest. Grass is blue, Tree is green and Ragweed is purple")
+            }
         }.padding()
     }
 }
 
 struct BarCharts: View {
     var cdData: [simpleHistoryEntry]
+    var symptomType: Int
     var graphedData: [(String, Double)] {
         var arr: [(String, Double)] = []
         var numberPerMonth: [Int] = []
         var previousMonth: Int?
         for entry in cdData {
             let calendarDate = Calendar.current.dateComponents([.year, .month], from: entry.date)
+            var symptomVal: Double = 0
+            if self.symptomType == 1 {
+                symptomVal = entry.msSymptom
+            } else {
+                symptomVal = entry.avgSymptom
+            }
             if let prevMonthNotNil = previousMonth {
                 if calendarDate.month! != prevMonthNotNil {
-                    arr.append((getDateString(date: entry.date), entry.msSymptom))
+                    let i = arr.count
+                    arr[i-1].1 /= Double(numberPerMonth[i-1])
+                    arr.append((getDateString(date: entry.date), symptomVal))
                     previousMonth = calendarDate.month!
                     numberPerMonth.append(1)
                 } else {
                     let i = arr.count
-                    arr[i-1].1 += entry.msSymptom
+                    arr[i-1].1 += symptomVal
                     numberPerMonth[i-1]+=1
                 }
             } else {
                 previousMonth = calendarDate.month!
-                arr.append((getDateString(date: entry.date), entry.msSymptom))
+                arr.append((getDateString(date: entry.date), symptomVal))
                 numberPerMonth.append(1)
             }
         }
@@ -109,11 +158,24 @@ struct BarCharts: View {
         return arr
     }
     
+    var chartStyle: ChartStyle {
+        let style = Styles.barChartStyleNeonBlueLight
+        style.darkModeStyle = Styles.barChartStyleNeonBlueDark
+        return style
+    }
+    
     var body: some View {
         VStack {
-            Text("Overall Severity month-to-month").font(.title)
-            BarChartView(data: ChartData(values: graphedData), title: "Symptoms over Time", style: Styles.barChartStyleOrangeLight, form: ChartForm.extraLarge)
-            Spacer()
+            Text("Overall Severity by Month").font(.title).multilineTextAlignment(.center)
+            BarChartView(data: ChartData(values: graphedData),
+                         title: "Symptoms over Time",
+                         legend: "Monthly",
+                         style: chartStyle,
+                         form: ChartForm.extraLarge,
+                         cornerImage: Image(systemName: "wind"))
+            ScrollView {
+                Text("This graph shows symptoms for each month. You can either compile max severity or average severity. This can be used over time to show when you have the most sever symptoms. Drag over the graph to see what month each bar corresponds to.")
+            }
         }.padding()
     }
     
@@ -124,6 +186,34 @@ struct BarCharts: View {
         guard let month = calendar?.component(.month, from: date) else { return "1" } // Result: 4
         let monthsWithShortName = dateFormatter.shortMonthSymbols! // Result: ["Jan”, "Feb”, "Mar”, "Apr”, "May”, "Jun”, "Jul”, "Aug”, "Sep”, "Oct”, "Nov”, "Dec”]
         return "\(monthsWithShortName[Int(month)-1]), \(year)"
+    }
+}
+
+struct RawHistoryView: View {
+    var history: History
+    var formatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        return formatter
+    }
+    var simpleHistory: simpleHistoryEntry {
+        return simpleHistoryEntry(history: history)
+    }
+    
+    
+    var body: some View {
+        HStack {
+            VStack {
+                Text(formatter.string(from: history.date ?? Date()))
+                Text("Max Symptom: \(simpleHistory.msSymptom, specifier: "%.0f")")
+                Text("Average Symptom: \(simpleHistory.avgSymptom, specifier: "%.1f")")
+            }
+            Spacer()
+            VStack {
+                Text("Grass:Tree:Pollen")
+                Text("\(simpleHistory.grassPollenIndex, specifier: "%.0f"):\(simpleHistory.treePollenIndex, specifier: "%.0f"):\(simpleHistory.weedPollenIndex, specifier: "%.0f")")
+            }
+        }
     }
 }
 
