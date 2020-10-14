@@ -52,12 +52,13 @@ struct ContentView: View {
                     }
                     Button(action: {
                         self.activeSheet = .second
-                    }) { Text("Record Symptoms").fontWeight(.semibold) }
-                    .frame(minWidth: 0, maxWidth: .infinity)
-                    .padding()
-                    .foregroundColor(.white)
-                    .background(Color.accentColor)
-                    .cornerRadius(40)
+                    }) { Text("Record Symptoms")
+                        .fontWeight(.semibold)
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.accentColor)
+                        .cornerRadius(40) }
                 }
                 .padding(10)
                 .frame(minWidth: 0, maxWidth: .infinity)

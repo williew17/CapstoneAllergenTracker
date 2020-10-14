@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import CoreML
 
 struct UserProfileRecorder: View {
     @Environment(\.colorScheme) var colorScheme
@@ -30,21 +31,26 @@ struct UserProfileRecorder: View {
             Picker(selection: $userProfile.sensitiveSeason, label: Text("What season are you sensitive?")) {
                 Text("Spring/Early Summer").tag("Spring")
                 Text("Late Summer/Fall").tag("Summer")
-                Text("About Even").tag("Even")
+                Text("About Even/Unknown").tag("Even")
             }.pickerStyle(DefaultPickerStyle())
             Spacer()
             Button(action: {
                 self.saveData()
                 self.predictionModel.chooseModel()
                 self.presentationMode.wrappedValue.dismiss()
-            }) { Text("Done!").fontWeight(.semibold) }
-            .frame(minWidth: 0, maxWidth: .infinity)
-            .padding()
-            .foregroundColor(.white)
-            .background(Color.accentColor)
-            .cornerRadius(40)
+            }) { Text("Done!")
+                .fontWeight(.semibold)
+                .frame(minWidth: 0, maxWidth: .infinity)
+                .padding()
+                .foregroundColor(.white)
+                .background(Color.accentColor)
+                .cornerRadius(40) }
+
         }.padding()
         .background(AngularGradient(gradient: Gradient(colors: [Color.green, colorScheme == .dark ? Color.black : Color.white, Color.green]), center: .top ).edgesIgnoringSafeArea(.all))
+        .onAppear {
+            predictionModel.printStatus()
+        }
     }
     
     func saveData() {

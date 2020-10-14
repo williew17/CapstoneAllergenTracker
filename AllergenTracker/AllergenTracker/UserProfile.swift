@@ -13,7 +13,9 @@ struct UserProfile: Codable {
     var sensitiveSeason: String
     
     init() {
+        /// Never Rarely Occasionally Often
         self.typicalSensitivity = "Unknown"
+        ///Spring, Summer, Even
         self.sensitiveSeason = "Unknown"
     }
 }

@@ -133,9 +133,9 @@ struct SymptomRecorderView: View {
         try? self.moc.save()
         let pollenTypeIndexes = consolidateTriggerListByType(triggers: triggerList)
         if let arr = try? MLMultiArray(shape: [3], dataType: MLMultiArrayDataType.float32) {
-            arr[0] = NSNumber(floatLiteral: pollenTypeIndexes[0])
-            arr[1] = NSNumber(floatLiteral: pollenTypeIndexes[1])
-            arr[2] = NSNumber(floatLiteral: pollenTypeIndexes[2])
+            arr[0] = NSNumber(floatLiteral: pollenTypeIndexes[0]/5)
+            arr[1] = NSNumber(floatLiteral: pollenTypeIndexes[1]/15)
+            arr[2] = NSNumber(floatLiteral: pollenTypeIndexes[2]/2)
             predictionModel.update(inputArray: arr, output: symptomString)
         } else { print(#function, "Failed to create MLMultiArray") }
     }
