@@ -23,7 +23,7 @@ struct HistoryView: View {
         let date = Date()
         for his in historyList {
             let months = date.months(from: his.date ?? Date())
-            if months < self.monthsToLoad {
+            if months < self.monthsToLoad-1 {
                 arr.append(simpleHistoryEntry(history: his))
             }
         }
