@@ -257,6 +257,8 @@ struct simpleHistoryEntry {
                 default:
                     print(#function, "Problem in plant type")
                 }
+//                self.grassPollenIndex*=0.5
+//                self.treePollenIndex*=(2.0/15.0)
             }
         } catch {
             print(error.localizedDescription)

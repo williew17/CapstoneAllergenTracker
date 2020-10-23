@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 
 struct Symptoms {
-    static let symptomList: [String] = ["Runny nose", "Itchy eyes", "Congestion", "Sneezing", "Sinus pressure"]
+    static let symptomList: [String] = ["Runny nose/Congestion", "Itchy/Watery eyes", "Cough", "Sneezing", "Sinus pressure"]
     static let severityColors: [String: Color] = ["None": .green, "Mild": .yellow, "Moderate": .orange, "Severe": .red]
     static let numberSeverity: [String: String] = ["0" : "None", "1": "Mild", "2" : "Moderate", "3" : "Severe"]
     static let profileSeverityMap: [String: Int] = ["Never": 0, "Rarely": 1, "Occasionally": 2, "Often": 3]
@@ -215,4 +215,12 @@ extension Date {
         if seconds(from: date) > 0 { return "\(seconds(from: date))s" }
         return ""
     }
+}
+
+public extension String {
+
+    func isNumber() -> Bool {
+        return NumberFormatter().number(from: self) != nil
+    }
+
 }

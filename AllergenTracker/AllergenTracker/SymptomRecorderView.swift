@@ -18,7 +18,7 @@ struct SymptomRecorderView: View {
     @State var date = Date()
     @State private var experiencingSymptoms = false
     @State private var symptomDataList: [(doesExist: Bool, severity: Int)] = Array(repeating: (false, 0), count: Symptoms.symptomList.count)
-    @State private var manualLGID: [String] = ["100","100","100"]
+    @State private var manualLGID: [String] = ["","",""]
     
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -93,6 +93,7 @@ struct SymptomRecorderView: View {
                             self.presentationMode.wrappedValue.dismiss() }) {
                         Text("Submit")
                     }
+                    .disabled(!manualLGID[0].isNumber() || !manualLGID[1].isNumber() || !manualLGID[2].isNumber())
                 }
             }
             .navigationBarTitle(Text("\(date, formatter: dateFormatter) Symptoms"))
